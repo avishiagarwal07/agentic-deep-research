@@ -226,3 +226,13 @@ __pycache__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Downloaded papers (too large for GitHub)
+papers/
+
+# Vector store data
+chroma_db/
+
+# Python cache
+__pycache__/
+*.pyc
