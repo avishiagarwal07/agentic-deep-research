@@ -104,10 +104,16 @@ eval/results/
 
 ## Key hyperparameters (all in config.py)
 
-- `CHUNK_SIZE` = 400 tokens, `CHUNK_OVERLAP` = 80
-- `TOP_K_DENSE` = 50, `TOP_K_BM25` = 50 → fused to top 20 → reranked to top 8
-- `MAX_ITERATIONS` = 5 (reflector loop cap)
-- `MIN_EVIDENCE_CHUNKS` = 6 (reflector early stop)
+Key hyperparameters (see config.py)
+
+- Chunk size: 400 tokens
+- Chunk overlap: 80 tokens
+- Dense retrieval candidates: 50
+- BM25 candidates: 50
+- RRF output size: 20
+- Cross-encoder reranked output: 8
+- Maximum reflection iterations: 5
+- Early-stop threshold: 6 evidence chunks
 
 
 ## Author
