@@ -1,4 +1,3 @@
-# agentic-deep-research
 # Agentic Deep Research
 
 An agentic deep-research system over a corpus of recent LLM-agent papers (arXiv, cs.CL/AI/LG, Jan 2024–Apr 2026).
