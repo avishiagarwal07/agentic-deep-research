@@ -3,6 +3,20 @@
 
 An agentic deep-research system over a corpus of recent LLM-agent papers (arXiv, cs.CL/AI/LG, Jan 2024–Apr 2026).
 
+
+## Current Status
+
+- 63 processed arXiv papers
+- PyMuPDF-based PDF parsing
+- Hybrid retrieval (BM25 + ChromaDB)
+- Reciprocal Rank Fusion
+- Cross-encoder reranking
+- Planner, Reflector, Synthesizer, and Verifier agents
+- Automated evaluation pipeline with multiple ablations
+
+During development, Groq API rate limits significantly increased evaluation runtime. The retrieval and agent pipelines are functional, while large-scale evaluation is still being expanded.
+
+
 ## Architecture
 
 ```
@@ -63,7 +77,7 @@ pip install -r requirements.txt
 # 2. Set Groq API key (free at console.groq.com)
 export GROQ_API_KEY=gsk_your_key_here
 
-# 3. Run everything (takes ~4-6 hours for full corpus)
+# 3. Run everything (runtime depends heavily on Groq API rate limits and corpus size).
 python run_pipeline.py --phase all
 ```
 
@@ -122,7 +136,7 @@ eval/results/
 - `TOP_K_DENSE` = 50, `TOP_K_BM25` = 50 → fused to top 20 → reranked to top 8
 - `MAX_ITERATIONS` = 5 (reflector loop cap)
 - `MIN_EVIDENCE_CHUNKS` = 6 (reflector early stop)
-'''
+
 
 ## Author
 Avishi Agarwal
