@@ -122,3 +122,7 @@ eval/results/
 - `TOP_K_DENSE` = 50, `TOP_K_BM25` = 50 → fused to top 20 → reranked to top 8
 - `MAX_ITERATIONS` = 5 (reflector loop cap)
 - `MIN_EVIDENCE_CHUNKS` = 6 (reflector early stop)
+'''
+
+## Author
+Avishi Agarwal
