@@ -1,6 +1,6 @@
 # Agentic Deep Research
 
-An agentic deep-research system over a corpus of recent LLM-agent papers (arXiv, cs.CL/AI/LG, Jan 2024–Apr 2026).
+This project builds an agentic research assistant that answers questions about recent LLM-agent research papers. The system collects papers from arXiv, builds a hybrid retrieval index, and uses a planner–retriever–reflector pipeline to generate cited answers grounded in the literature.
 
 
 ## Current Status
