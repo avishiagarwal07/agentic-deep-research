@@ -18,37 +18,15 @@ During development, Groq API rate limits significantly increased evaluation runt
 
 ## Architecture
 
-```
-User question
-    │
-    ▼
-┌─────────┐    sub-questions
-│ Planner │ ──────────────────────────────────────────────┐
-└─────────┘                                               │
-                                                          ▼
-                                              ┌──────────────────────┐
-                                              │  Hybrid Retriever    │
-                                              │  BM25 + Dense + RRF  │
-                                              │  + Cross-encoder     │
-                                              └──────────┬───────────┘
-                                                         │ evidence chunks
-                                                         ▼
-                                              ┌──────────────────────┐
-         ┌───── follow-up queries ────────────│     Reflector        │
-         │                                    │  (sufficient? loop)  │
-         └────────────────────────────────────└──────────────────────┘
-                                                         │ sufficient
-                                                         ▼
-                                              ┌──────────────────────┐
-                                              │    Synthesizer       │
-                                              │  (cited answer)      │
-                                              └──────────┬───────────┘
-                                                         │
-                                                         ▼
-                                              ┌──────────────────────┐
-                                              │     Verifier         │
-                                              │  (citation check)    │
-                                              └──────────────────────┘
+## Architecture
+
+```mermaid
+flowchart TD
+    Q[User Question] --> P[Planner]
+    P --> R[Hybrid Retriever]
+    R --> F[Reflector]
+    F --> S[Synthesizer]
+    S --> V[Verifier]
 ```
 
 ## Tech Stack
