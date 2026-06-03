@@ -15,19 +15,14 @@ An agentic deep-research system over a corpus of recent LLM-agent papers (arXiv,
 
 During development, Groq API rate limits significantly increased evaluation runtime. The retrieval and agent pipelines are functional, while large-scale evaluation is still being expanded.
 
+## System Architecture
 
-## Architecture
-
-## Architecture
-
-```mermaid
-flowchart TD
-    Q[User Question] --> P[Planner]
-    P --> R[Hybrid Retriever]
-    R --> F[Reflector]
-    F --> S[Synthesizer]
-    S --> V[Verifier]
-```
+1. The planner breaks a research question into smaller sub-questions.
+2. Each sub-question is sent to a hybrid retriever combining BM25 and dense retrieval.
+3. Retrieved chunks are reranked using a cross-encoder.
+4. The reflector decides whether enough evidence has been collected.
+5. The synthesizer generates a cited answer.
+6. The verifier checks citation grounding.
 
 ## Tech Stack
 
