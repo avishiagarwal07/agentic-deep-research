@@ -236,3 +236,8 @@ chroma_db/
 # Python cache
 __pycache__/
 *.pyc
+data/parsed/
+data/chunks/
+*.pkl
+predictions/
+.DS_Store

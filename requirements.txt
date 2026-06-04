@@ -1,9 +1,20 @@
-arxiv==4.0.0
-certifi==2026.5.20
-charset-normalizer==3.4.7
-idna==3.17
-lxml==6.1.1
-PyMuPDF==1.27.2.3
-python-dotenv==1.2.2
-requests==2.33.1
-urllib3==2.7.0
+# Agentic Deep Research — requirements.txt
+# Install: pip install -r requirements.txt
+
+# ── Core ──────────────────────────────────────────────────────────────────
+groq>=0.9.0                        # Groq API client (Llama 3.3 70B + 3.1 8B)
+pymupdf>=1.24.0                    # PDF parsing (fitz)
+google-genai
+
+# ── Retrieval stack ────────────────────────────────────────────────────────
+sentence-transformers>=2.7.0       # BAAI/bge-small-en-v1.5 + cross-encoder reranker
+chromadb>=0.5.0                    # persistent vector store
+rank-bm25>=0.2.2                   # BM25Okapi lexical index
+
+# ── Chunking ──────────────────────────────────────────────────────────────
+langchain-text-splitters>=0.2.0    # RecursiveCharacterTextSplitter
+tiktoken>=0.7.0                    # token counting (cl100k_base)
+
+# ── Utilities ─────────────────────────────────────────────────────────────
+tqdm>=4.66.0
+numpy>=1.26.0
