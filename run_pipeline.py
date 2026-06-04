@@ -61,15 +61,20 @@ def phase_run(config_names: list[str] | None = None):
         out_path = PREDICTIONS_DIR / f"{cfg_name}.jsonl"
 
         # Skip if already done
+        existing = 0
+
         if out_path.exists():
             existing = sum(1 for _ in open(out_path))
+
             if existing >= len(questions):
                 print(f"  [SKIP] {cfg_name} already complete ({existing} predictions)")
                 continue
 
+            print(f"  [RESUME] {cfg_name} from question {existing+1}")
+
         print(f"\n  Running config: {cfg_name} {cfg}")
-        with open(out_path, "w", encoding="utf-8") as out_f:
-            for i, q in enumerate(questions):
+        with open(out_path, "a", encoding="utf-8") as out_f:
+            for i, q in enumerate(questions[existing:], start=existing):
                 print(f"    Q{i+1}/{len(questions)}: {q['question'][:70]} …")
                 try:
                     state = run_agent(
